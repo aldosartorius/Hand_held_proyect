@@ -3,7 +3,7 @@
 * @Filename              :   Hand held 
 * @Author                :   Aldo R. Sartorius Castellanos
 * Origin Date            :   01/01/2021
-* @Version               :   1.0.0
+* @Version               :   1.1.0
 * Compiler               :   Keil
 * Target                 :   STM32F103C8T6 Microcontroller
 * Notes                  :   None
@@ -18,6 +18,7 @@
 *  03/01/21   1.0.0   Aldo Sartorius   add stm32f1xx_hal_tim_cfg.c for configure timer delay
 *  15/01/21   1.0.0   Aldo Sartorius   add hal_lcd.h for configure LCD functionallity
 *  15/01/21   1.0.0   Aldo Sartorius   add hal_lcd.c for configure LCD functionallity
+*  03/02/21   1.1.0   Aldo Sartorius   add external interrupt functionality EXTI for buttons
 * 
 *
 *****************************************************************************/
@@ -30,28 +31,41 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"                  // Device header
-//#include "stm32f1xx_hal_gpio_cfg.h"
-//#include "stm32f1xx_hal_gpio_cfg.h"
 
- #include "stm32f1xx_hal_gpio.h"  /* For this modules definitions */                                
- #include "stm32f1xx_hal_gpio_cfg.h"
+// For configuration modules
+//#include "stm32f1xx_hal_gpio.h"  /* For this modules definitions */                                
+#include "stm32f1xx_hal_gpio_cfg.h"
 
- #include "stm32f1xx_hal_tim.h"  /* For this modules definitions */                                
- #include "stm32f1xx_hal_tim_cfg.h"
- #include "hal_lcd.h"
+ //#include "stm32f1xx_hal_tim.h"  /* For this modules definitions */                                
+#include "stm32f1xx_hal_tim_cfg.h"
+#include "stm32f1xx_hal_exti_cfg.h"
+#include "hal_lcd.h"
+
 
 #include <stdio.h>    //for sprintf function
 #include <stdlib.h>   //for rand function
+
+
+void Init_Handheld(void);
+
+
 
 
 int main(void){
 
 	double random_number;
 	int max_theta1 = 360;
-	int motor_number=1;
+
 	
 	GPIO_Init();
 	TIM_Delay_Init();
+	
+	HAL_Lcd_Init();
+	HAL_Lcd_Clear();	
+	
+	Init_Handheld();
+	EXTI_Init();
+
 	
 	
 	//Set off all indicator leds
@@ -61,17 +75,15 @@ int main(void){
 	HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
 
 
-	HAL_Lcd_Init();
-	HAL_Lcd_Clear();	
-
+	
      
 	while(1){
 		
-	
+	/*
 	
         random_number=rand()/3000000;
-				char s[13];
-		    char s2[13];
+				char cRow1[16];
+		    char cRow2[16];
 				char s3[13];
         sprintf(s,"%0.2f", random_number);
 		    sprintf(s2,"%d", max_theta1);
@@ -168,10 +180,20 @@ int main(void){
 					HAL_Lcd_Print_String("MAMA");
 				}
        
-
+*/
 	}
 
  return 0;
 }
 
-  
+void Init_Handheld(void){
+		
+		HAL_Lcd_Cmd(0x2);  //Display return home
+	
+		HAL_Lcd_Print_String("Handheld v1.0.0");	
+	  HAL_Lcd_Set_Cursor(2,0);
+		HAL_Lcd_Print_String("Robot Armdroid");
+	  HAL_TIM_msDelay(&sTIMER1,2000);
+	
+}
+

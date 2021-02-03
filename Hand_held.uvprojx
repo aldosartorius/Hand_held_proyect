@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\HAL_GPIO;..\HAL_TIM;..\HAL_LCD</IncludePath>
+              <IncludePath>..\HAL_GPIO;..\HAL_TIM;..\HAL_LCD;..\HAL_EXTI</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -437,6 +437,26 @@
               <FileName>hal_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HAL_LCD\hal_lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_exti_cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\stm32f1xx_hal_exti_cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_exti_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\stm32f1xx_hal_exti_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_exti.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HAL_EXTI\stm32f1xx_hal_exti.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HAL_EXTI\stm32f1xx_hal_exti.c</FilePath>
             </File>
           </Files>
         </Group>

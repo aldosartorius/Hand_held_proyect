@@ -22,25 +22,46 @@ Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
 D:\Autocapacitacion\Codigo\Programas STM32F103\Hand_held_proyect\Hand_held.uvprojx
-Project File Date:  01/09/2021
+Project File Date:  02/03/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'STM32F103C8T6'
-compiling stm32f1xx_hal_tim.c...
-main.c(153): warning: no newline at end of file [-Wnewline-eof]
-  
-  ^
-main.c(146): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(57): warning: unused variable 'max_theta1' [-Wunused-variable]
+        int max_theta1 = 360;
+            ^
+main.c(56): warning: unused variable 'random_number' [-Wunused-variable]
+        double random_number;
+               ^
+main.c(186): warning: 'return' will never be executed [-Wunreachable-code-return]
  return 0;
         ^
-2 warnings generated.
+3 warnings generated.
 compiling main.c...
-compiling stm32f1xx_hal_tim_cfg.c...
-assembling startup_stm32f10x_md.s...
 compiling stm32f1xx_hal_gpio_cfg.c...
-compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_tim_cfg.c...
 compiling hal_lcd.c...
+compiling stm32f1xx_hal_tim.c...
+stm32f1xx_hal_exti_cfg.c(4): warning: extra tokens at end of #include directive [-Wextra-tokens]
+#include "hal_lcd.h".h"      /*hal_tim header*/
+                    ^
+                    //
+stm32f1xx_hal_exti_cfg.c(4): warning: missing terminating '"' character [-Winvalid-pp-token]
+#include "hal_lcd.h".h"      /*hal_tim header*/
+                      ^
+stm32f1xx_hal_exti_cfg.c(8): warning: no previous extern declaration for non-static variable 'iMotorNumber' [-Wmissing-variable-declarations]
+int iMotorNumber = (uint8_t)1;
+    ^
+stm32f1xx_hal_exti_cfg.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int iMotorNumber = (uint8_t)1;
+^
+stm32f1xx_hal_exti_cfg.c(153): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+4 warnings generated.
+compiling stm32f1xx_hal_exti_cfg.c...
+compiling stm32f1xx_hal_gpio.c...
+compiling stm32f1xx_hal_exti.c...
 RTE/Device/STM32F103C8/system_stm32f10x.c(167): warning: no previous extern declaration for non-static variable 'AHBPrescTable' [-Wmissing-variable-declarations]
 __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
             ^
@@ -49,9 +70,10 @@ __I uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9}
     ^
 1 warning generated.
 compiling system_stm32f10x.c...
+assembling startup_stm32f10x_md.s...
 linking...
-Program Size: Code=8126 RO-data=454 RW-data=0 ZI-data=2272  
-".\Objects\Hand_held.axf" - 0 Error(s), 3 Warning(s).
+Program Size: Code=4382 RO-data=278 RW-data=4 ZI-data=2176  
+".\Objects\Hand_held.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -79,8 +101,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
 Build Time Elapsed:  00:00:01
 </pre>
