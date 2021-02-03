@@ -1,0 +1,104 @@
+Dependencies for Project 'Hand_held', Target 'STM32F103C8T6': (DO NOT MODIFY !)
+CompilerVersion: 6150000::V6.15::ARMCLANG
+F (.\main.c)(0x60078D9D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
+I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83CBA2)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
+I (..\HAL_GPIO\stm32f1xx_hal_gpio.h)(0x5FD38B06)
+I (stm32f1xx_hal_gpio_cfg.h)(0x5FFDD3D8)
+I (..\HAL_TIM\stm32f1xx_hal_tim.h)(0x5FD40875)
+I (stm32f1xx_hal_tim_cfg.h)(0x5FF79E79)
+I (..\HAL_LCD\hal_lcd.h)(0x6008CE0F)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5F379594)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x5F37958E)
+F (..\HAL_GPIO\stm32f1xx_hal_gpio.c)(0x5FD38847)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_gpio.o -MD)
+I (..\HAL_GPIO\stm32f1xx_hal_gpio.h)(0x5FD38B06)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
+I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83CBA2)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
+F (..\HAL_GPIO\stm32f1xx_hal_gpio.h)(0x5FD38B06)()
+F (.\stm32f1xx_hal_gpio_cfg.h)(0x5FFDD3D8)()
+F (.\stm32f1xx_hal_gpio_cfg.c)(0x5FFE4018)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_gpio_cfg.o -MD)
+I (stm32f1xx_hal_gpio_cfg.h)(0x5FFDD3D8)
+I (..\HAL_GPIO\stm32f1xx_hal_gpio.h)(0x5FD38B06)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
+I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83CBA2)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
+F (..\HAL_TIM\stm32f1xx_hal_tim.h)(0x5FD40875)()
+F (..\HAL_TIM\stm32f1xx_hal_tim.c)(0x5FD414B1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_tim.o -MD)
+I (..\HAL_TIM\stm32f1xx_hal_tim.h)(0x5FD40875)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
+I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83CBA2)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
+F (.\stm32f1xx_hal_tim_cfg.c)(0x5FF87BBD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_tim_cfg.o -MD)
+I (stm32f1xx_hal_tim_cfg.h)(0x5FF79E79)
+I (..\HAL_TIM\stm32f1xx_hal_tim.h)(0x5FD40875)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
+I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83CBA2)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
+F (.\stm32f1xx_hal_tim_cfg.h)(0x5FF79E79)()
+F (..\HAL_LCD\hal_lcd.h)(0x6008CE0F)()
+F (..\HAL_LCD\hal_lcd.c)(0x6008CD14)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/hal_lcd.o -MD)
+I (..\HAL_LCD\hal_lcd.h)(0x6008CE0F)
+I (..\HAL_LCD\stm32f1xx_hal_gpio_cfg.h)(0x5FFDD154)
+I (..\HAL_GPIO\stm32f1xx_hal_gpio.h)(0x5FD38B06)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
+I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83CBA2)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
+I (..\HAL_LCD\stm32f1xx_hal_tim_cfg.h)(0x5FF79E79)
+I (..\HAL_TIM\stm32f1xx_hal_tim.h)(0x5FD40875)
+F (RTE\Device\STM32F103C8\RTE_Device.h)(0x59289676)()
+F (RTE\Device\STM32F103C8\startup_stm32f10x_md.s)(0x5825EF3C)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto -c-gdwarf-3 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 533" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F10X_MD SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f10x_md.o)
+F (RTE\Device\STM32F103C8\system_stm32f10x.c)(0x5825EF3C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/system_stm32f10x.o -MD)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
+I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F9602)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E83CBA2)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armclang.h)(0x5E8F9602)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
+I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
+I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
