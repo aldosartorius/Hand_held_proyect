@@ -3,9 +3,7 @@
 
 #ifndef STM32F1XX_HAL_EXTI__CFG_H__
 #define STM32F1XX_HAL_EXTI__CFG_H__
-// int iMotorNumber;
-static  char cRow1[16];
-static char cRow2[16];
+
 
 //Function prototype
 void EXTI_Init(void);

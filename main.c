@@ -33,18 +33,21 @@
 #include "stm32f10x.h"                  // Device header
 
 // For configuration modules
-//#include "stm32f1xx_hal_gpio.h"  /* For this modules definitions */                                
+                             
 #include "stm32f1xx_hal_gpio_cfg.h"
-
- //#include "stm32f1xx_hal_tim.h"  /* For this modules definitions */                                
 #include "stm32f1xx_hal_tim_cfg.h"
 #include "stm32f1xx_hal_exti_cfg.h"
 #include "hal_lcd.h"
 
 
 #include <stdio.h>    //for sprintf function
-#include <stdlib.h>   //for rand function
+//#include <stdlib.h>   //for rand function
 
+
+static int iMotorNumber;
+static  char cRow1[16];
+static char cRow2[16];
+static uint16_t iButtonDebouncingTime = 150;
 
 void Init_Handheld(void);
 
@@ -53,10 +56,10 @@ void Init_Handheld(void);
 
 int main(void){
 
-	double random_number;
-	int max_theta1 = 360;
+	//double random_number;
+	//int max_theta1 = 360;
 
-	
+	__disable_irq();
 	GPIO_Init();
 	TIM_Delay_Init();
 	
@@ -66,7 +69,7 @@ int main(void){
 	Init_Handheld();
 	EXTI_Init();
 
-	
+	__enable_irq();
 	
 	//Set off all indicator leds
 	HAL_GPIO_Pin_Write(&sSTATE_LED, GPIO_PIN_RESET);
@@ -74,113 +77,25 @@ int main(void){
 	HAL_GPIO_Pin_Write(&sOPEN_CLOSE_LED, GPIO_PIN_RESET);
 	HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
 
+//UNUSED PINS TO 0
 
-	
+HAL_GPIO_Pin_Write(&sPB12, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPA8, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPA9, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPA10, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPA11, GPIO_PIN_RESET);
+
+HAL_GPIO_Pin_Write(&sPA12, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPA15, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPB9, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPC15, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPC14, GPIO_PIN_RESET);
+HAL_GPIO_Pin_Write(&sPC13, GPIO_PIN_SET);
+
+iMotorNumber = 0;
      
 	while(1){
-		
-	/*
 	
-        random_number=rand()/3000000;
-				char cRow1[16];
-		    char cRow2[16];
-				char s3[13];
-        sprintf(s,"%0.2f", random_number);
-		    sprintf(s2,"%d", max_theta1);
-				
-		
-		    HAL_Lcd_Print_String(s3);
-				HAL_Lcd_Set_Cursor(2,3);
-				sprintf(s,"%0.2f", random_number);
-				HAL_Lcd_Print_String(s);
-				HAL_Lcd_Set_Cursor(2,9);
-				HAL_Lcd_Print_String("/");  
-				HAL_Lcd_Print_String(s2);
-				HAL_Lcd_Set_Cursor(1,1);
-		
-		
-	
-				//Read buttons states
-				RESET_BUTTON_STATE = HAL_GPIO_Pin_Read(&sRESET_BUTTON);
-        OPEN_CLOSE_BUTTON_STATE = HAL_GPIO_Pin_Read(&sOPEN_CLOSE_BUTTON);
-        CLOSE_POSITION_SEND_BUTTON_STATE = HAL_GPIO_Pin_Read(&sCLOSE_POSITION_SEND_BUTTON);
-        SAVE_POSITION_BUTTON_STATE = HAL_GPIO_Pin_Read(&sSAVE_POSITION_BUTTON);
-
-				//Read Joystick states
-				JOSTICK_RIGHT_BUTTON_STATE = HAL_GPIO_Pin_Read(&sJOSTICK_RIGHT_BUTTON);
-				JOSTICK_LEFT_BUTTON_STATE = HAL_GPIO_Pin_Read(&sJOSTICK_LEFT_BUTTON);
-				JOSTICK_DOWN_BUTTON_STATE = HAL_GPIO_Pin_Read(&sJOSTICK_DOWN_BUTTON);
-				JOSTICK_UP_BUTTON_STATE = HAL_GPIO_Pin_Read(&sJOSTICK_UP_BUTTON);
-                
-             
-        if(RESET_BUTTON_STATE == GPIO_PIN_SET){
-         
-            HAL_GPIO_Pin_Write(&sRESET_LED, GPIO_PIN_SET);
-        
-        }
-        else{
-              
-            HAL_GPIO_Pin_Write(&sRESET_LED, GPIO_PIN_RESET);
-        
-        }
-       
-         
-        
-        if(OPEN_CLOSE_BUTTON_STATE ==  GPIO_PIN_SET){
-        
-            HAL_GPIO_Pin_Write(&sOPEN_CLOSE_LED, GPIO_PIN_SET);
-        
-       }
-         else{
-              
-         HAL_GPIO_Pin_Write(&sOPEN_CLOSE_LED, GPIO_PIN_RESET);
-        
-        }
-      
-        
-        if(CLOSE_POSITION_SEND_BUTTON_STATE ==  GPIO_PIN_SET | SAVE_POSITION_BUTTON_STATE ==  GPIO_PIN_SET){
-        
-            HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_SET);
-        
-        }
-        else{
-              
-        HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
-        
-        }
-				
-				if(JOSTICK_UP_BUTTON_STATE ==  GPIO_PIN_SET){
-					HAL_TIM_msDelay(&sTIMER1,200);
-					motor_number++;	
-					HAL_Lcd_Clear();
-					HAL_Lcd_Print_String("Jaz te quiero");
-					//sprintf(s3,"Jaz te quiero %d", motor_number);
-				}
-				if(JOSTICK_DOWN_BUTTON_STATE ==  GPIO_PIN_SET){
-					HAL_TIM_msDelay(&sTIMER1,200);
-					motor_number--;	
-					//sprintf(s3,"Sarai te quiero M%d", motor_number);
-					HAL_Lcd_Clear();
-					HAL_Lcd_Print_String("Sarai te quiero");
-				}
-				
-				if(JOSTICK_RIGHT_BUTTON_STATE ==  GPIO_PIN_SET){
-					HAL_TIM_msDelay(&sTIMER1,200);
-					motor_number--;	
-					//sprintf(s3,"Sarai te quiero M%d", motor_number);
-					HAL_Lcd_Clear();
-					HAL_Lcd_Print_String("PAPA");
-				}
-			
-				if(JOSTICK_LEFT_BUTTON_STATE ==  GPIO_PIN_SET){
-					HAL_TIM_msDelay(&sTIMER1,200);
-					motor_number--;	
-					//sprintf(s3,"Sarai te quiero M%d", motor_number);
-					HAL_Lcd_Clear();
-					HAL_Lcd_Print_String("MAMA");
-				}
-       
-*/
 	}
 
  return 0;
@@ -193,7 +108,134 @@ void Init_Handheld(void){
 		HAL_Lcd_Print_String("Handheld v1.0.0");	
 	  HAL_Lcd_Set_Cursor(2,0);
 		HAL_Lcd_Print_String("Robot Armdroid");
-	  HAL_TIM_msDelay(&sTIMER1,2000);
+	  HAL_TIM_msDelay(&sTIMER1,500);
+	
+}
+
+// Interrupt Handler (Jostick up)
+void EXTI0_IRQHandler(void){
+	
+	// Verify that the interrupt and the input are present (avoiding false trigers
+	if((EXTI->PR & 0x1) & (GPIOA->IDR & 0x1) ){
+					
+		//Button debouncing
+		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+		
+		//Verify max motor number
+		if(iMotorNumber == 5){
+				iMotorNumber = 1;
+		}
+		else{
+				iMotorNumber++;
+		}
+		HAL_Lcd_Clear();
+		sprintf(cRow1,"Motor M%d", iMotorNumber);
+		HAL_Lcd_Print_String(cRow1);
+	}
+	HAL_EXTI_ClearPending(&sEXTI_PA0);
+}
+
+// Interrupt Handler (Jostick down)
+void EXTI1_IRQHandler(void){
+	
+	// Verify that the interrupt and the input are present (avoiding false trigers
+	if((EXTI->PR & 0x2) & (GPIOA->IDR & 0x2)){
+				
+		//Button debouncing
+		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);	
+		
+		//Verify min motor number
+		if(iMotorNumber <= 1){
+				iMotorNumber = 5;
+		}
+		else{
+				iMotorNumber--;
+		}
+		HAL_Lcd_Clear();
+		sprintf(cRow1,"Motor M%d", iMotorNumber);
+		HAL_Lcd_Print_String(cRow1);	
+	}
+	HAL_EXTI_ClearPending(&sEXTI_PA1);
+}
+
+// Interrupt Handler (Jostick left)
+void EXTI2_IRQHandler(void){
+	
+	
+	if((EXTI->PR & 0x4) & (GPIOA->IDR & 0x4)){
+				
+			//Button debouncing
+			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+			HAL_GPIO_Pin_Toggle(&sRESET_LED);
+	
+	}
+	HAL_EXTI_ClearPending(&sEXTI_PA2);
+}
+
+// Interrupt Handler (Jostick rigth)
+void EXTI3_IRQHandler(void){
+	
+	
+	if((EXTI->PR & 0x8) & (GPIOA->IDR & 0x8)){
+		
+			//Button debouncing
+			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+			HAL_GPIO_Pin_Toggle(&sOPEN_CLOSE_LED);		
+	}
+	HAL_EXTI_ClearPending(&sEXTI_PA3);
+}
+
+// Interrupt Handler (Save position button)
+void EXTI4_IRQHandler(void){
+	
+	if((EXTI->PR & 0x10) & (GPIOA->IDR & 0x10)){
+		
+			//Button debouncing
+			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+			HAL_GPIO_Pin_Toggle(&sSAVE_POSITION_LED);
+	}
+	HAL_EXTI_ClearPending(&sEXTI_PA4);
+}
+
+// Interrupt Handler for close position send button, O/C, loop button, reset button
+void EXTI9_5_IRQHandler(void){
+	
+
+	//If EXTI Line 5 is detected
+	if((EXTI->PR & 0x20) & (GPIOA->IDR & 0x20)){
+		
+			//Button debouncing
+			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+			HAL_GPIO_Pin_Toggle(&sSAVE_POSITION_LED);
+			HAL_EXTI_ClearPending(&sEXTI_PA5);
+	}
+	
+	//If EXTI Line 6 is detected
+	if((EXTI->PR & 0x40) & (GPIOA->IDR & 0x40)){
+			
+			//Button debouncing
+			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+			HAL_GPIO_Pin_Toggle(&sOPEN_CLOSE_LED);
+			HAL_EXTI_ClearPending(&sEXTI_PA6);
+	}
+	
+  //If EXTI Line 7 is detected 
+  if((EXTI->PR & 0x80) & (GPIOA->IDR & 0x80)){
+			
+		//Button debouncing
+			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);	
+		if (HAL_GPIO_Pin_Read(&sRESET_BUTTON) & GPIO_PIN_SET){	
+		
+			HAL_GPIO_Pin_Write(&sRESET_LED, GPIO_PIN_SET);
+			HAL_EXTI_ClearPending(&sEXTI_PA7);
+		}
+		if (HAL_GPIO_Pin_Read(&sRESET_BUTTON) == GPIO_PIN_RESET ){	
+		
+			HAL_GPIO_Pin_Write(&sRESET_LED, GPIO_PIN_RESET);
+			HAL_EXTI_ClearPending(&sEXTI_PA7);
+		}
+		
+	}
 	
 }
 

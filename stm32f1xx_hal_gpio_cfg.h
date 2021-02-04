@@ -47,4 +47,19 @@ extern GPIO_Pin_TypeDef sD1;      //Data 1
 extern GPIO_Pin_TypeDef sD2;      //Data 2
 extern GPIO_Pin_TypeDef sD3;      //Data 3
 
+//Unused pins
+
+extern GPIO_Pin_TypeDef sPB12;
+extern GPIO_Pin_TypeDef sPA8;
+extern GPIO_Pin_TypeDef sPA9;
+extern GPIO_Pin_TypeDef sPA10;
+extern GPIO_Pin_TypeDef sPA11;
+extern GPIO_Pin_TypeDef sPA12;
+extern GPIO_Pin_TypeDef sPA15;
+
+extern GPIO_Pin_TypeDef sPB9;
+extern GPIO_Pin_TypeDef sPC15;
+extern GPIO_Pin_TypeDef sPC14;
+extern GPIO_Pin_TypeDef sPC13;
+
 #endif

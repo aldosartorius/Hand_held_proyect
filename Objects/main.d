@@ -12,5 +12,4 @@
   stm32f1xx_hal_gpio_cfg.h ..\HAL_GPIO\stm32f1xx_hal_gpio.h \
   stm32f1xx_hal_tim_cfg.h ..\HAL_TIM\stm32f1xx_hal_tim.h \
   stm32f1xx_hal_exti_cfg.h ..\HAL_EXTI\stm32f1xx_hal_exti.h \
-  ..\HAL_LCD\hal_lcd.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h
+  ..\HAL_LCD\hal_lcd.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h

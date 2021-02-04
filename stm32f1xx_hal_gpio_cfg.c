@@ -41,6 +41,21 @@ GPIO_Pin_TypeDef sD1 = {0};      //Data 1
 GPIO_Pin_TypeDef sD2 = {0};      //Data 2
 GPIO_Pin_TypeDef sD3 = {0};      //Data 3
 
+//Unused pins
+
+ GPIO_Pin_TypeDef sPB12= {0};
+ GPIO_Pin_TypeDef sPA8= {0};
+ GPIO_Pin_TypeDef sPA9= {0};
+ GPIO_Pin_TypeDef sPA10= {0};
+ GPIO_Pin_TypeDef sPA11= {0};
+ GPIO_Pin_TypeDef sPA12= {0};
+ GPIO_Pin_TypeDef sPA15= {0};
+
+ GPIO_Pin_TypeDef sPB9= {0};
+ GPIO_Pin_TypeDef sPC15= {0};
+ GPIO_Pin_TypeDef sPC14= {0};
+ GPIO_Pin_TypeDef sPC13= {0};
+
 
 void GPIO_Init(void){  
 
@@ -177,4 +192,78 @@ void GPIO_Init(void){
 	sE.Mode = GPIO_MODE_OUTPUT_LOW;
 	sE.Config = GPIO_CNF_OUTPUT_PP;
 	HAL_GPIO_Pin_Init(&sE);
+	
+	
+	
+	
+	//UNUSED PINS
+	
+	sPB12.Port = GPIO_PORT_B;
+	sPB12.Pin = GPIO_PIN_12;
+	sPB12.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPB12.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPB12);
+	 
+	sPA8.Port = GPIO_PORT_A;
+	sPA8.Pin = GPIO_PIN_8;
+	sPA8.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPA8.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPA8);
+	 
+	sPA9.Port = GPIO_PORT_A;
+	sPA9.Pin = GPIO_PIN_9;
+	sPA9.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPA9.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPA9);
+ 
+
+  sPA10.Port = GPIO_PORT_A;
+	sPA10.Pin = GPIO_PIN_10;
+	sPA10.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPA10.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPA10);
+ 
+  sPA11.Port = GPIO_PORT_A;
+	sPA11.Pin = GPIO_PIN_11;
+	sPA11.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPA11.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPA11);
+
+  sPA12.Port = GPIO_PORT_A;
+	sPA12.Pin = GPIO_PIN_12;
+	sPA12.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPA12.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPA12);
+
+  sPA15.Port = GPIO_PORT_A;
+	sPA15.Pin = GPIO_PIN_15;
+	sPA15.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPA15.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPA15);
+
+  sPB9.Port = GPIO_PORT_B;
+	sPB9.Pin = GPIO_PIN_9;
+	sPB9.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPB9.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPB9);
+
+
+	sPC15.Port = GPIO_PORT_C;
+	sPC15.Pin = GPIO_PIN_15;
+	sPC15.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPC15.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPC15);
+  
+	sPC14.Port = GPIO_PORT_C;
+	sPC14.Pin = GPIO_PIN_14;
+	sPC14.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPC14.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPC14);
+  
+	sPC13.Port = GPIO_PORT_C;
+	sPC13.Pin = GPIO_PIN_13;
+	sPC13.Mode = GPIO_MODE_OUTPUT_LOW;
+	sPC13.Config = GPIO_CNF_OUTPUT_PP;
+	HAL_GPIO_Pin_Init(&sPC13);
+
 }
