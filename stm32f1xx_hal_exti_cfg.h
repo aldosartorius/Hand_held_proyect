@@ -18,7 +18,7 @@ void EXTI9_5_IRQHandler(void);
 extern EXTI_ConfigTypeDef sEXTI_PA0;  //Interrupt for jostick up
 extern EXTI_ConfigTypeDef sEXTI_PA1;  //Interrupt for jostick down
 extern EXTI_ConfigTypeDef sEXTI_PA2;  //Interrupt for jostick left
-extern EXTI_ConfigTypeDef sEXTI_PA3;  //Interrupt for jostick right
+extern EXTI_ConfigTypeDef sEXTI_PA8;  //Interrupt for jostick right
 
 extern EXTI_ConfigTypeDef sEXTI_PA4;  //Interrupt for save position button
 extern EXTI_ConfigTypeDef sEXTI_PA5;  //Interrupt for close position send buttom

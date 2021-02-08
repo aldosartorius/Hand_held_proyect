@@ -19,6 +19,8 @@
 *  15/01/21   1.0.0   Aldo Sartorius   add hal_lcd.h for configure LCD functionallity
 *  15/01/21   1.0.0   Aldo Sartorius   add hal_lcd.c for configure LCD functionallity
 *  03/02/21   1.1.0   Aldo Sartorius   add external interrupt functionality EXTI for buttons
+*  04/02/21   1.1.0   Aldo Sartorius   modify external interrupt handlers to avoid false trigers 
+*  08/02/21   1.1.0   Aldo Sartorius   Change PA3 pint for PA8 pin to read Jostick rigth button (PA3 change this state suddently)
 * 
 *
 *****************************************************************************/
@@ -31,60 +33,48 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"                  // Device header
+#include "hal_lcd.h"                    // LCD Samsumg driver
+#include <stdio.h>                      //sprintf function
 
 // For configuration modules
-                             
 #include "stm32f1xx_hal_gpio_cfg.h"
 #include "stm32f1xx_hal_tim_cfg.h"
 #include "stm32f1xx_hal_exti_cfg.h"
-#include "hal_lcd.h"
-
-
-#include <stdio.h>    //for sprintf function
-//#include <stdlib.h>   //for rand function
-
-
-static int iMotorNumber;
-static  char cRow1[16];
-static char cRow2[16];
-static uint16_t iButtonDebouncingTime = 150;
-
-void Init_Handheld(void);
-
-
+#include "stm32f1xx_hal_uart_cfg.h"
+#include "Handheld_cfg.h"
 
 
 int main(void){
 
-	//double random_number;
-	//int max_theta1 = 360;
-
 	__disable_irq();
+	
+	// Init Ports, timers, LCD, EXTI, UART
 	GPIO_Init();
 	TIM_Delay_Init();
-	
 	HAL_Lcd_Init();
+	EXTI_Init();
+	UART_Init();
+	
+	//Init Handheld 
 	HAL_Lcd_Clear();	
 	
 	Init_Handheld();
-	EXTI_Init();
-
-	__enable_irq();
 	
 	//Set off all indicator leds
 	HAL_GPIO_Pin_Write(&sSTATE_LED, GPIO_PIN_RESET);
 	HAL_GPIO_Pin_Write(&sRESET_LED, GPIO_PIN_RESET);
 	HAL_GPIO_Pin_Write(&sOPEN_CLOSE_LED, GPIO_PIN_RESET);
 	HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
+	
 
-//UNUSED PINS TO 0
+	__enable_irq();
+	
+	
+
+//Set Unused pins to 0
 
 HAL_GPIO_Pin_Write(&sPB12, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPA8, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPA9, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPA10, GPIO_PIN_RESET);
 HAL_GPIO_Pin_Write(&sPA11, GPIO_PIN_RESET);
-
 HAL_GPIO_Pin_Write(&sPA12, GPIO_PIN_RESET);
 HAL_GPIO_Pin_Write(&sPA15, GPIO_PIN_RESET);
 HAL_GPIO_Pin_Write(&sPB9, GPIO_PIN_RESET);
@@ -92,31 +82,21 @@ HAL_GPIO_Pin_Write(&sPC15, GPIO_PIN_RESET);
 HAL_GPIO_Pin_Write(&sPC14, GPIO_PIN_RESET);
 HAL_GPIO_Pin_Write(&sPC13, GPIO_PIN_SET);
 
-iMotorNumber = 0;
-     
+
 	while(1){
-	
+		
 	}
 
  return 0;
 }
 
-void Init_Handheld(void){
-		
-		HAL_Lcd_Cmd(0x2);  //Display return home
-	
-		HAL_Lcd_Print_String("Handheld v1.0.0");	
-	  HAL_Lcd_Set_Cursor(2,0);
-		HAL_Lcd_Print_String("Robot Armdroid");
-	  HAL_TIM_msDelay(&sTIMER1,500);
-	
-}
+
 
 // Interrupt Handler (Jostick up)
 void EXTI0_IRQHandler(void){
 	
 	// Verify that the interrupt and the input are present (avoiding false trigers
-	if((EXTI->PR & 0x1) & (GPIOA->IDR & 0x1) ){
+	if((EXTI->PR & 0x1) && (GPIOA->IDR & 0x1) ){
 					
 		//Button debouncing
 		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
@@ -128,9 +108,10 @@ void EXTI0_IRQHandler(void){
 		else{
 				iMotorNumber++;
 		}
+
 		HAL_Lcd_Clear();
-		sprintf(cRow1,"Motor M%d", iMotorNumber);
-		HAL_Lcd_Print_String(cRow1);
+		sprintf(lcdRow1,"Motor M%d", iMotorNumber);
+		HAL_Lcd_Print_String(lcdRow1);
 	}
 	HAL_EXTI_ClearPending(&sEXTI_PA0);
 }
@@ -139,7 +120,7 @@ void EXTI0_IRQHandler(void){
 void EXTI1_IRQHandler(void){
 	
 	// Verify that the interrupt and the input are present (avoiding false trigers
-	if((EXTI->PR & 0x2) & (GPIOA->IDR & 0x2)){
+	if((EXTI->PR & 0x2) && (GPIOA->IDR & 0x2)){
 				
 		//Button debouncing
 		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);	
@@ -152,8 +133,8 @@ void EXTI1_IRQHandler(void){
 				iMotorNumber--;
 		}
 		HAL_Lcd_Clear();
-		sprintf(cRow1,"Motor M%d", iMotorNumber);
-		HAL_Lcd_Print_String(cRow1);	
+		sprintf(lcdRow1,"Motor M%d", iMotorNumber);
+		HAL_Lcd_Print_String(lcdRow1);	
 	}
 	HAL_EXTI_ClearPending(&sEXTI_PA1);
 }
@@ -162,33 +143,22 @@ void EXTI1_IRQHandler(void){
 void EXTI2_IRQHandler(void){
 	
 	
-	if((EXTI->PR & 0x4) & (GPIOA->IDR & 0x4)){
+	if((EXTI->PR & 0x4) && (GPIOA->IDR & 0x4)){
 				
-			//Button debouncing
-			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
-			HAL_GPIO_Pin_Toggle(&sRESET_LED);
-	
+		//Button debouncing
+		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+		HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_SET);
+		sprintf(uartString,"-%d", iMotorNumber);
+		HAL_UART_Tx_String(&UART1, uartString);
 	}
+	HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
 	HAL_EXTI_ClearPending(&sEXTI_PA2);
-}
-
-// Interrupt Handler (Jostick rigth)
-void EXTI3_IRQHandler(void){
-	
-	
-	if((EXTI->PR & 0x8) & (GPIOA->IDR & 0x8)){
-		
-			//Button debouncing
-			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
-			HAL_GPIO_Pin_Toggle(&sOPEN_CLOSE_LED);		
-	}
-	HAL_EXTI_ClearPending(&sEXTI_PA3);
 }
 
 // Interrupt Handler (Save position button)
 void EXTI4_IRQHandler(void){
 	
-	if((EXTI->PR & 0x10) & (GPIOA->IDR & 0x10)){
+	if((EXTI->PR & 0x10) && (GPIOA->IDR & 0x10)){
 		
 			//Button debouncing
 			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
@@ -200,9 +170,8 @@ void EXTI4_IRQHandler(void){
 // Interrupt Handler for close position send button, O/C, loop button, reset button
 void EXTI9_5_IRQHandler(void){
 	
-
 	//If EXTI Line 5 is detected
-	if((EXTI->PR & 0x20) & (GPIOA->IDR & 0x20)){
+	if((EXTI->PR & 0x20) && (GPIOA->IDR & 0x20)){
 		
 			//Button debouncing
 			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
@@ -211,7 +180,7 @@ void EXTI9_5_IRQHandler(void){
 	}
 	
 	//If EXTI Line 6 is detected
-	if((EXTI->PR & 0x40) & (GPIOA->IDR & 0x40)){
+	if((EXTI->PR & 0x40) && (GPIOA->IDR & 0x40)){
 			
 			//Button debouncing
 			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
@@ -220,7 +189,7 @@ void EXTI9_5_IRQHandler(void){
 	}
 	
   //If EXTI Line 7 is detected 
-  if((EXTI->PR & 0x80) & (GPIOA->IDR & 0x80)){
+  if((EXTI->PR & 0x80) && (GPIOA->IDR & 0x80)){
 			
 		//Button debouncing
 			HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);	
@@ -237,5 +206,23 @@ void EXTI9_5_IRQHandler(void){
 		
 	}
 	
+	//If EXTI Line 8 is detected  (Jostick rigth)
+  if((EXTI->PR & 0x100) && (GPIOA->IDR & 0x100)){
+		
+		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
+		HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_SET);
+		sprintf(uartString,"+%d", iMotorNumber);
+		HAL_UART_Tx_String(&UART1, uartString);	
+
+		HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
+		HAL_EXTI_ClearPending(&sEXTI_PA8);
+	}			
 }
 
+// Interrupt Handler USART Rx
+void USART1_IRQHandler(){
+	//RECIBIR LOS DATOS Y ACTUALIZAR 
+
+
+
+}

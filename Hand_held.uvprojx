@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\HAL_GPIO;..\HAL_TIM;..\HAL_LCD;..\HAL_EXTI</IncludePath>
+              <IncludePath>..\HAL_GPIO;..\HAL_TIM;..\HAL_LCD;..\HAL_EXTI;..\HAL_UART</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -389,54 +389,69 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_gpio.c</FileName>
+              <FileName>Handheld_cfg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HAL_GPIO\stm32f1xx_hal_gpio.c</FilePath>
+              <FilePath>.\Handheld_cfg.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_gpio.h</FileName>
+              <FileName>Handheld_cfg.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HAL_GPIO\stm32f1xx_hal_gpio.h</FilePath>
+              <FilePath>.\Handheld_cfg.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USART</GroupName>
+          <Files>
             <File>
-              <FileName>stm32f1xx_hal_gpio_cfg.h</FileName>
+              <FileName>stm32f1xx_hal_uart_cfg.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\stm32f1xx_hal_gpio_cfg.h</FilePath>
+              <FilePath>.\stm32f1xx_hal_uart_cfg.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_gpio_cfg.c</FileName>
+              <FileName>stm32f1xx_hal_uart_cfg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\stm32f1xx_hal_gpio_cfg.c</FilePath>
+              <FilePath>.\stm32f1xx_hal_uart_cfg.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_tim.h</FileName>
+              <FileName>stm32f1xx_hal_uart.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\HAL_TIM\stm32f1xx_hal_tim.h</FilePath>
+              <FilePath>..\HAL_UART\stm32f1xx_hal_uart.h</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_tim.c</FileName>
+              <FileName>stm32f1xx_hal_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HAL_TIM\stm32f1xx_hal_tim.c</FilePath>
+              <FilePath>..\HAL_UART\stm32f1xx_hal_uart.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>LCD</GroupName>
+          <Files>
             <File>
-              <FileName>stm32f1xx_hal_tim_cfg.c</FileName>
+              <FileName>hal_lcd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\stm32f1xx_hal_tim_cfg.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f1xx_hal_tim_cfg.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\stm32f1xx_hal_tim_cfg.h</FilePath>
+              <FilePath>..\HAL_LCD\hal_lcd.c</FilePath>
             </File>
             <File>
               <FileName>hal_lcd.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\HAL_LCD\hal_lcd.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>EXTI</GroupName>
+          <Files>
             <File>
-              <FileName>hal_lcd.c</FileName>
+              <FileName>stm32f1xx_hal_exti.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HAL_EXTI\stm32f1xx_hal_exti.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HAL_LCD\hal_lcd.c</FilePath>
+              <FilePath>..\HAL_EXTI\stm32f1xx_hal_exti.c</FilePath>
             </File>
             <File>
               <FileName>stm32f1xx_hal_exti_cfg.c</FileName>
@@ -448,17 +463,60 @@
               <FileType>5</FileType>
               <FilePath>.\stm32f1xx_hal_exti_cfg.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>GPIO</GroupName>
+          <Files>
             <File>
-              <FileName>stm32f1xx_hal_exti.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\HAL_EXTI\stm32f1xx_hal_exti.h</FilePath>
+              <FileName>stm32f1xx_hal_gpio_cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\stm32f1xx_hal_gpio_cfg.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f1xx_hal_exti.c</FileName>
+              <FileName>stm32f1xx_hal_gpio_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\stm32f1xx_hal_gpio_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\HAL_EXTI\stm32f1xx_hal_exti.c</FilePath>
+              <FilePath>..\HAL_GPIO\stm32f1xx_hal_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HAL_GPIO\stm32f1xx_hal_gpio.h</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>TIM</GroupName>
+          <Files>
+            <File>
+              <FileName>stm32f1xx_hal_tim_cfg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\stm32f1xx_hal_tim_cfg.h</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_tim_cfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\stm32f1xx_hal_tim_cfg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HAL_TIM\stm32f1xx_hal_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f1xx_hal_tim.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HAL_TIM\stm32f1xx_hal_tim.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Handheld</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

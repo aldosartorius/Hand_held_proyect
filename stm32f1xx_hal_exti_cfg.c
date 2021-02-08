@@ -6,7 +6,7 @@
 EXTI_ConfigTypeDef sEXTI_PA0 = {0};  //Interrupt for jostick up
 EXTI_ConfigTypeDef sEXTI_PA1 = {0};  //Interrupt for jostick down
 EXTI_ConfigTypeDef sEXTI_PA2 = {0};  //Interrupt for jostick left
-EXTI_ConfigTypeDef sEXTI_PA3 = {0};  //Interrupt for jostick right
+EXTI_ConfigTypeDef sEXTI_PA8 = {0};  //Interrupt for jostick right
 
 EXTI_ConfigTypeDef sEXTI_PA4 = {0};  //Interrupt for save position button
 EXTI_ConfigTypeDef sEXTI_PA5 = {0};  //Interrupt for close position send buttom
@@ -35,10 +35,10 @@ void EXTI_Init(){
 	HAL_EXTI_Init(&sEXTI_PA2);
 
 	// Populate structure for Interrupt (Jostick rigth)
-	sEXTI_PA3.GPIOSel = EXTI_GPIOA;
-	sEXTI_PA3.Line = EXTI_LINE_3;
-	sEXTI_PA3.Trigger = EXTI_TRIGGER_RISING;
-	HAL_EXTI_Init(&sEXTI_PA3);
+	sEXTI_PA8.GPIOSel = EXTI_GPIOA;
+	sEXTI_PA8.Line = EXTI_LINE_8;//3
+	sEXTI_PA8.Trigger = EXTI_TRIGGER_RISING;
+	HAL_EXTI_Init(&sEXTI_PA8);
 
 	// Populate structure for Interrupt (Save position button)
 	sEXTI_PA4.GPIOSel = EXTI_GPIOA;
