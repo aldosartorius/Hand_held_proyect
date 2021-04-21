@@ -1,6 +1,6 @@
 Dependencies for Project 'Hand_held', Target 'STM32F103C8T6': (DO NOT MODIFY !)
 CompilerVersion: 6150000::V6.15::ARMCLANG
-F (.\main.c)(0x60217F85)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x6080239F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
 I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
 I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
 I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F9602)
@@ -20,10 +20,11 @@ I (..\HAL_TIM\stm32f1xx_hal_tim.h)(0x5FD40875)
 I (stm32f1xx_hal_exti_cfg.h)(0x602172DC)
 I (..\HAL_EXTI\stm32f1xx_hal_exti.h)(0x601AA2B3)
 I (stm32f1xx_hal_uart_cfg.h)(0x601D3CF3)
-I (..\HAL_UART\stm32f1xx_hal_uart.h)(0x60218AEA)
-I (Handheld_cfg.h)(0x601D5309)
-F (.\Handheld_cfg.c)(0x601D5273)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/handheld_cfg.o -MD)
-I (Handheld_cfg.h)(0x601D5309)
+I (..\HAL_UART\stm32f1xx_hal_uart.h)(0x602AD7B7)
+I (Handheld_cfg.h)(0x60801013)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x5F379584)
+F (.\Handheld_cfg.c)(0x60800EC6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/handheld_cfg.o -MD)
+I (Handheld_cfg.h)(0x60801013)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
 I (..\HAL_LCD\hal_lcd.h)(0x6008CE0F)
 I (stm32f1xx_hal_tim_cfg.h)(0x5FF79E79)
@@ -37,11 +38,14 @@ I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\c
 I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
 I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
-F (.\Handheld_cfg.h)(0x601D5309)()
-F (.\stm32f1xx_hal_uart_cfg.h)(0x601D3CF3)()
-F (.\stm32f1xx_hal_uart_cfg.c)(0x60218CB0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_uart_cfg.o -MD)
 I (stm32f1xx_hal_uart_cfg.h)(0x601D3CF3)
-I (..\HAL_UART\stm32f1xx_hal_uart.h)(0x60218AEA)
+I (..\HAL_UART\stm32f1xx_hal_uart.h)(0x602AD7B7)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x5F379584)
+F (.\Handheld_cfg.h)(0x60801013)()
+F (.\stm32f1xx_hal_uart_cfg.h)(0x601D3CF3)()
+F (.\stm32f1xx_hal_uart_cfg.c)(0x6080222F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_uart_cfg.o -MD)
+I (stm32f1xx_hal_uart_cfg.h)(0x601D3CF3)
+I (..\HAL_UART\stm32f1xx_hal_uart.h)(0x602AD7B7)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
 I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
 I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)
@@ -52,9 +56,9 @@ I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\c
 I (C:\Keil_v5\ARM\ARMCLANG\include\arm_compat.h)(0x5EE1EC22)
 I (C:\Keil_v5\ARM\ARMCLANG\include\arm_acle.h)(0x5F274C18)
 I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x5825FD4C)
-F (..\HAL_UART\stm32f1xx_hal_uart.h)(0x60218AEA)()
-F (..\HAL_UART\stm32f1xx_hal_uart.c)(0x60218AE2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_uart.o -MD)
-I (..\HAL_UART\stm32f1xx_hal_uart.h)(0x60218AEA)
+F (..\HAL_UART\stm32f1xx_hal_uart.h)(0x602AD7B7)()
+F (..\HAL_UART\stm32f1xx_hal_uart.c)(0x602C1496)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -O1 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../HAL_GPIO -I ../HAL_TIM -I ../HAL_LCD -I ../HAL_EXTI -I ../HAL_UART-I./RTE/Device/STM32F103C8-I./RTE/_STM32F103C8T6-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/Soul_PC/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.3.0/Device/Include-D__UVISION_VERSION="533" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/stm32f1xx_hal_uart.o -MD)
+I (..\HAL_UART\stm32f1xx_hal_uart.h)(0x602AD7B7)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
 I (C:\Users\Soul_PC\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x5825FD4C)
 I (RTE\_STM32F103C8T6\RTE_Components.h)(0x5FCC2429)

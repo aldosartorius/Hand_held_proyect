@@ -14,4 +14,4 @@
   stm32f1xx_hal_tim_cfg.h ..\HAL_TIM\stm32f1xx_hal_tim.h \
   stm32f1xx_hal_exti_cfg.h ..\HAL_EXTI\stm32f1xx_hal_exti.h \
   stm32f1xx_hal_uart_cfg.h ..\HAL_UART\stm32f1xx_hal_uart.h \
-  Handheld_cfg.h
+  Handheld_cfg.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h

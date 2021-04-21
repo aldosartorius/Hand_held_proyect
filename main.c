@@ -3,7 +3,7 @@
 * @Filename              :   Hand held 
 * @Author                :   Aldo R. Sartorius Castellanos
 * Origin Date            :   01/01/2021
-* @Version               :   1.1.0
+* @Version               :   1.2.0
 * Compiler               :   Keil
 * Target                 :   STM32F103C8T6 Microcontroller
 * Notes                  :   None
@@ -21,6 +21,7 @@
 *  03/02/21   1.1.0   Aldo Sartorius   add external interrupt functionality EXTI for buttons
 *  04/02/21   1.1.0   Aldo Sartorius   modify external interrupt handlers to avoid false trigers 
 *  08/02/21   1.1.0   Aldo Sartorius   Change PA3 pint for PA8 pin to read Jostick rigth button (PA3 change this state suddently)
+*  21/04/21   1.2.0   Aldo Sartorius   Add UART Tx communication with STM32F401RE microcontroller to activate PWM signal for robot using Joystick
 * 
 *
 *****************************************************************************/
@@ -46,46 +47,43 @@
 
 int main(void){
 
-	__disable_irq();
-	
-	// Init Ports, timers, LCD, EXTI, UART
-	GPIO_Init();
-	TIM_Delay_Init();
-	HAL_Lcd_Init();
-	EXTI_Init();
-	UART_Init();
-	
-	//Init Handheld 
-	HAL_Lcd_Clear();	
-	
-	Init_Handheld();
-	
-	//Set off all indicator leds
-	HAL_GPIO_Pin_Write(&sSTATE_LED, GPIO_PIN_RESET);
-	HAL_GPIO_Pin_Write(&sRESET_LED, GPIO_PIN_RESET);
-	HAL_GPIO_Pin_Write(&sOPEN_CLOSE_LED, GPIO_PIN_RESET);
-	HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
-	
+		__disable_irq();
 
-	__enable_irq();
-	
-	
+		// Init Ports, timers, LCD, EXTI, UART
+		GPIO_Init();
+		TIM_Delay_Init();
+		HAL_Lcd_Init();
+		EXTI_Init();
+		UART_Init();
 
-//Set Unused pins to 0
+		//Init Handheld 
+		HAL_Lcd_Clear();	
 
-HAL_GPIO_Pin_Write(&sPB12, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPA11, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPA12, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPA15, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPB9, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPC15, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPC14, GPIO_PIN_RESET);
-HAL_GPIO_Pin_Write(&sPC13, GPIO_PIN_SET);
+		Init_Handheld();
+
+		//Set off all indicator leds
+		HAL_GPIO_Pin_Write(&sSTATE_LED, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sRESET_LED, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sOPEN_CLOSE_LED, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
 
 
-	while(1){
-		
-	}
+		__enable_irq();
+
+		//Set Unused pins to 0
+
+		HAL_GPIO_Pin_Write(&sPB12, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sPA11, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sPA12, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sPA15, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sPB9, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sPC15, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sPC14, GPIO_PIN_RESET);
+		HAL_GPIO_Pin_Write(&sPC13, GPIO_PIN_SET);
+
+		while(1){
+
+		}
 
  return 0;
 }
@@ -102,7 +100,7 @@ void EXTI0_IRQHandler(void){
 		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
 		
 		//Verify max motor number
-		if(iMotorNumber == 5){
+		if(iMotorNumber == 6){
 				iMotorNumber = 1;
 		}
 		else{
@@ -127,7 +125,7 @@ void EXTI1_IRQHandler(void){
 		
 		//Verify min motor number
 		if(iMotorNumber <= 1){
-				iMotorNumber = 5;
+				iMotorNumber = 6;
 		}
 		else{
 				iMotorNumber--;
@@ -148,8 +146,39 @@ void EXTI2_IRQHandler(void){
 		//Button debouncing
 		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
 		HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_SET);
-		sprintf(uartString,"-%d", iMotorNumber);
-		HAL_UART_Tx_String(&UART1, uartString);
+		//sprintf(uartString,"-%d", iMotorNumber);
+		switch(iMotorNumber){
+			
+			case 1:
+				uartTxChar = 'B';   //Motor1_Backward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 2:
+				uartTxChar = 'D';   //Motor2_Backward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 3:
+				uartTxChar = 'F';   //Motor3_Backward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 4:
+				uartTxChar = 'H';   //Motor4_Backward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 5:
+				uartTxChar = 'J';   //Motor5_Backward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 6:
+				uartTxChar = 'L';   //Motor6_Backward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+		}
 	}
 	HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
 	HAL_EXTI_ClearPending(&sEXTI_PA2);
@@ -209,11 +238,43 @@ void EXTI9_5_IRQHandler(void){
 	//If EXTI Line 8 is detected  (Jostick rigth)
   if((EXTI->PR & 0x100) && (GPIOA->IDR & 0x100)){
 		
+		//Button debouncing
 		HAL_TIM_msDelay(&sTIMER1,iButtonDebouncingTime);
 		HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_SET);
-		sprintf(uartString,"+%d", iMotorNumber);
-		HAL_UART_Tx_String(&UART1, uartString);	
-
+		//sprintf(uartString,"-%d", iMotorNumber);
+		switch(iMotorNumber){
+			
+			case 1:
+				uartTxChar = 'A';   //Motor1_Fordward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 2:
+				uartTxChar = 'C';   //Motor2_Fordward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 3:
+				uartTxChar = 'E';   //Motor3_Fordward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 4:
+				uartTxChar = 'G';   //Motor4_Fordward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 5:
+				uartTxChar = 'I';   //Motor5_Fordward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+			
+			case 6:
+				uartTxChar = 'K';   //Motor6_Fordward();
+				HAL_UART_Tx(&UART1, uartTxChar);
+		    break;
+		
+		}
 		HAL_GPIO_Pin_Write(&sSAVE_POSITION_LED, GPIO_PIN_RESET);
 		HAL_EXTI_ClearPending(&sEXTI_PA8);
 	}			
